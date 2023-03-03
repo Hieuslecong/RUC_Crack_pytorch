@@ -183,8 +183,6 @@ class RUCNet(nn.Module):
         d3 = self.residual2(d3) #128x128
         #d3 = self.res_block_up3(d3)#128x128
         d3=self.scse_128(d3)
-
-
         d2 = self.upconv2(d3) #128x128
         d2 = torch.cat([d2, x_sc64], dim=1) #128+64x64
         d2 = self.residual3(d2) #64x64
@@ -198,7 +196,6 @@ class RUCNet(nn.Module):
         x=self.conv_final(d1)# Classifier
         return x
     
-
 # test
 def test():
     x = torch.randn((3, 1, 161, 161))  # batch size, channel,height,width
