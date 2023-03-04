@@ -146,7 +146,7 @@ class RUCNet(nn.Module):
         )
         
         # Classifier
-        self.conv_final = nn.Conv2d(64, num_classes, kernel_size=1, stride=1, padding=0, bias=True)
+        self.conv_final = nn.Conv2d(64, num_classes, kernel_size=3, stride=1, padding=1, bias=True)
 
     def forward(self, x):
         # Encoder
